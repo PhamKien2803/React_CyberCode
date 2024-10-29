@@ -1,0 +1,165 @@
+useCallback: Sử dụng khi muốn tối ưu hóa việc tạo lại hàm, đặc biệt là khi truyền hàm vào component con.
+useMemo: Sử dụng khi có logic tính toán phức tạp và chỉ muốn tính lại khi các giá trị phụ thuộc thay đổi.
+
+
+USECALLBACK() : Khi hàm phụ thuộc vào giá trị nào đó và không cần tái tạo lại mỗi lần re-render.
+              : Chỉ ghi nhớ function và không có thực thi nó
+Công dụng: Trả về một phiên bản được ghi nhớ (memoized) của hàm, chỉ thay đổi khi một trong các dependency (phụ thuộc) thay đổi.
+Sử dụng khi nào:
+Khi bạn muốn đảm bảo rằng một hàm không bị thay đổi lại qua các lần render, trừ khi các dependency của nó thay đổi.
+Đặc biệt hữu ích khi bạn truyền các hàm vào component con để tránh render lại không cần thiết. 
+
+Nếu không dùng useCallback, 
+mỗi lần component cha render lại sẽ tạo ra một phiên bản mới của hàm, khiến component con bị re-render lại, 
+mặc dù logic của hàm không thay đổi.
+
+SynTax: 
+const handleClick = useCallback(() => {
+  console.log('Button clicked!');
+}, []); // Hàm này sẽ không thay đổi giữa các lần render
+
+return <Button onClick={handleClick} />;
+
+
+
+
+USEMEMO(): Khi tính toán một giá trị tốn kém và chỉ muốn tính toán lại khi các giá trị phụ thuộc thay đổi.
+          : Chỉ ghi nhớ cái kết quả trả về
+Công dụng: Trả về kết quả được ghi nhớ (memoized) của một tính toán, 
+chỉ thực hiện lại tính toán khi một trong các dependency thay đổi.
+Sử dụng khi nào:
+
+
+Khi bạn có một tính toán tốn kém (expensive calculation) mà bạn muốn tránh thực hiện lại trong mỗi lần render.
+Hữu ích cho việc tính toán các giá trị phức tạp, 
+hoặc khi bạn có một số logic phụ thuộc vào nhiều state 
+mà không muốn tính lại trừ khi giá trị phụ thuộc thay đổi.
+
+SYNTAX: 
+const expensiveComputation = useMemo(() => {
+  return computeExpensiveValue(data);
+}, [data]); // Chỉ tính lại khi `data` thay đổi
+
+return <div>{expensiveComputation}</div>;
+
+
+USEREF():  Lưu giá trị không gây re-render
+Khi bạn muốn lưu trữ một giá trị không cần thiết phải gây re-render lại component khi nó thay đổi. Khác với state, khi giá trị của useRef thay đổi, component sẽ không được render lại.
+Ví dụ: Đếm số lần component render mà không làm component render lại:
+
+function MyComponent() {
+  const renderCount = useRef(0);
+  useEffect(() => {
+    renderCount.current++;
+  });
+
+  return <div>Render count: {renderCount.current}</div>;
+}
+
+
+2. Truy cập DOM Elements
+Khi bạn cần tham chiếu đến một phần tử DOM trực tiếp trong JSX, như việc lấy một nút, input, hay bất kỳ phần tử DOM nào khác.
+Ví dụ: Focus vào một input khi component được mount
+
+function TextInputWithFocusButton() {
+  const inputRef = useRef(null);
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <div>
+      <input ref={inputRef} type="text" />
+      <button onClick={focusInput}>Focus the input</button>
+    </div>
+  );
+}
+
+
+3. Giữ lại giá trị qua các lần render
+Khi bạn cần giữ lại một giá trị giữa các lần render nhưng không cần gây re-render component, chẳng hạn như giữ dữ liệu của một timer hoặc giá trị trước đó của một state.
+Ví dụ: Giữ giá trị của một prop hoặc state trước đó
+
+function PreviousValue({ value }) {
+  const prevValue = useRef();
+
+  useEffect(() => {
+    prevValue.current = value;
+  }, [value]);
+
+  return <div>Current: {value}, Previous: {prevValue.current}</div>;
+}
+
+
+4. Tương tác với các API hoặc timer
+Bạn có thể sử dụng useRef để lưu trữ setTimeout, setInterval, hoặc bất kỳ API nào mà bạn không muốn gây ra re-render.
+Ví dụ: Dùng useRef để lưu trữ id của setInterval
+
+function Timer() {
+  const intervalRef = useRef(null);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setCount((prev) => prev + 1);
+    }, 1000);
+
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  return <div>Timer: {count}</div>;
+}
+
+
+Tóm lại:
+Dùng useRef khi bạn cần giữ lại dữ liệu qua các lần render mà không muốn gây re-render.
+Tham chiếu đến DOM để thao tác trực tiếp với các phần tử HTML trong React.
+
+
+USEREDUCER()
+là phiên bản nâng cấp của useState(), sẽ khá là giống với redux chỉ khác là không cần call thư viện
+mà call trực tiếp store trong component đó luôn
+thay cho việc phải dùng quá nhiều state
+
+
+USECONTEXT()
+useContext là một hook cho phép bạn truy cập vào giá trị của một context mà 
+không cần phải sử dụng Consumer component. Dưới đây là giải thích về 
+Provider và Consumer trong useContext:
+
++Provider:
+- **Định nghĩa**: `Provider` là một component được sử dụng để cung cấp giá trị cho context.
+ Nó bao bọc các component con và cho phép chúng truy cập vào giá trị context.
+
+ +Consumer:
+- **Định nghĩa**: `Consumer` là một component được sử
+ dụng để truy cập giá trị từ context. Tuy nhiên, khi sử dụng `useContext`, 
+bạn không cần phải sử dụng `Consumer` trực tiếp.
+
+
+===============================================================================================================================
+
+Khi nào nên dùng REDUX:
+Ứng dụng có state phức tạp với nhiều loại dữ liệu cần quản lý.
+Ứng dụng cần side effects phức tạp (như giao tiếp với nhiều API hoặc điều phối nhiều luồng action).
+Cần tính năng debug mạnh mẽ và theo dõi state thay đổi qua thời gian.
+Ứng dụng lớn, nhiều team cùng làm việc trên một dự án và cần một kiến trúc rõ ràng để dễ quản lý.
+
+
+
+Khi nào nên dùng useContext + useReducer:
+Ứng dụng vừa và nhỏ với state không quá phức tạp.
+Bạn muốn giữ ứng dụng đơn giản, không muốn thêm thư viện bên ngoài.
+Bạn chỉ cần một giải pháp quản lý state đơn giản, nhanh chóng mà không cần cấu hình phức tạp như Redux.
+Kết luận:
+Redux: phù hợp hơn với các ứng dụng lớn, phức tạp hoặc khi bạn cần quản lý nhiều state với logic xử lý phức tạp. Nếu bạn cần các công cụ phát triển mạnh mẽ để debug, Redux cũng là một lựa chọn tốt.
+useContext + useReducer: tốt hơn cho các ứng dụng nhỏ và vừa, khi bạn chỉ cần một giải pháp đơn giản và nhẹ nhàng để quản lý state.
+
+
+REACT_REDUX có 2 cái hooks useSelector và useDispatch: sử dụng quản lý state trực tiếp thông qua 2 hooks mà không cần gọi đến connect của redux
+có thể quản lý store redux bằng hook hay quản lí bằng redux bình thường đều ok
+
++ useSelector sẽ thay cho việc sử dùng hàm commentMaptoProps
+
++ useDispatch để gửi giá trị lên reducer (thay thế cho mapDispatchToProp hoặc this.props.dispatch)

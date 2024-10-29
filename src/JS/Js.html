@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="button" onclick="handleClickFindMaxNumber()">
+      Click Me Now!!
+    </button>
+
+    <p id="theP">ReactJS</p>
+    <button onclick="handleClickChangeText()">Click Me now</button>
+
+    <div
+      id="background"
+      style="
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin-top: 5rem;
+      "
+    >
+      <h1 id="text">text</h1>
+    </div>
+    <button style="margin-top: 2rem" onclick="changColorRandom()">
+      Change Color
+    </button>
+
+    <h1>Change Color Car HonDa Civic</h1>
+    <button onclick="turnBlack()">Black</button>
+    <img
+      id="car"
+      style="width: 700px; height: 500px"
+      src="./img/civicblack-1.jpg"
+      alt=""
+    />
+    <button style="margin-bottom: 5rem" onclick="turnRed()">Red</button><br />
+
+    <input type="text" name="textbox" id="message" placeholder="Text box" />
+    <button id="buttonDis">Button</button>
+    <h1>Click nút "NHẤN ĐỂ DISABLED" để disabled</h1>
+    <button id="disable" onclick="handleDisable()">NHẤN ĐỂ DISABLED</button>
+    <button id="undisable" onclick="handleunDisable()">
+      NHẤN ĐỂ UNDISABLED
+    </button>
+
+    <div style="background-color: azure; width: 300px; height: 400px; margin-top: 5rem;">
+      Account: <input id="account" type="text" value="" /> Password:
+      <input id="password" type="text" value="" /><br/>
+      <button onclick="handleLogin()">Login</button>
+      <div id="notification" style="background-color: red;">
+        Thông Báo
+      </div>
+    </div>
+
+
+    <ul>
+      <li>Front End</li>
+      <li>Back End</li>
+      <li>FrameWork</li>
+      <li>NodeJS</li>
+    </ul>
+
+    <p>Click nút để thay đổi item đầu tiên trong danh sách li (index 0)</p><br/>
+    <button onclick="handleChangeItem()">NHẤN THỬ</button>
+
+    <div id="myDiv">
+      <p>Thẻ p đầu tiên trong div (index 0)</p>
+      <p>Thẻ p đầu tiên trong div (index 1)</p>
+      <p>Thẻ p đầu tiên trong div (index 2)</p>
+    </div>
+
+    <p>Nhấn để thay đổi backgroundColor</p>
+    <button onclick="changeBgColor()">Click đi</button>
+
+    <p>Tạo button tự động</p>
+
+    <button onclick="handleCreateButton()">Tạo Button</button>
+
+    <script src="./javascript.js"></script>
+  </body>
+</html>
+
+
+

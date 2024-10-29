@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tình tiền tip</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="background: rgb(90, 0, 0)">
+    <div style="width: 20%; background-color: white;" class="container-fluid mt-5">
+      <form>
+        <h1 style="font-size: 20px; text-align: center; background-color: black; color: white;">App tính tiền tip</h1>
+        <p style="color: black;">Nhập tổng số tiền trên bill</p>
+        <input id="bill" type="text" placeholder="Tổng hóa đơn">
+        <p style="color: black;">Bạn có hài lòng với dịch vụ ?
+            <p>
+                <select id="service">
+                    <option disabled selected value="0">-----Vui lòng chọn đánh giá-----</option>
+                    <option value="0.3">30 - Cực kì hài lòng</option>
+                    <option value="0.2">20 - Hài lòng</option>
+                    <option value="0.15">15 - Tạm ổn</option>
+                    <option value="0.1">10 - Không hài lòng</option>
+                    <option value="0.05">5 - Hơi tệ</option>
+                </select>
+            </p>
+        </p>
+      </form>
+      <p style="color: black;">Chia tiền tiếp cho bao nhiêu người?</p>
+      <input id="peopleMoney" type="text" placeholder="Số người góp"><span class="text-light">người</span>
+      <button id="caculator" style="margin-left: 5rem; margin-top: 3rem; background-color: red; margin-bottom: 2rem;" type="button">TÍNH NGAY !</button>
+      <div id="totalTip">
+        <sup>$</sup><span id="tip">0.00</span>
+        <small id="each">mỗi người</small>
+      </div>
+    </div>
+
+    <script src="./backend.js"></script>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+{
+  "departments": [
+    {
+      "id": "1",
+      "name": "Integrated System"
+    },
+    {
+      "id": "2",
+      "name": "Software"
+    },
+    {
+      "id": "3",
+      "name": "Information Assurance"
+    }
+  ],
+  "employees": [
+    {
+      "id": "1",
+      "name": "Vu Thi Lan",
+      "dob": "1982-06-10",
+      "gender": "Female",
+      "position": "Developer",
+      "department": 1
+    },
+    {
+      "id": "2",
+      "name": "Tran Tuan Anh",
+      "dob": "1987-01-19",
+      "gender": "Male",
+      "position": "Developer",
+      "department": 1
+    },
+    {
+      "id": "3",
+      "name": "Vu Hoai Nam",
+      "dob": "1984-05-23",
+      "gender": "Male",
+      "position": "Leader",
+      "department": 1
+    },
+    {
+      "id": "4",
+      "name": "Luu Duc Hoa",
+      "dob": "1990-06-14",
+      "gender": "Male",
+      "position": "Developer",
+      "department": 2
+    },
+    {
+      "id": "5",
+      "name": "Luu Diec Phi",
+      "dob": "1987-03-12",
+      "gender": "Female",
+      "position": "Tester",
+      "department": 1
+    },
+    {
+      "id": "6",
+      "name": "Nguyen Xuan Quang",
+      "dob": "1987-01-19",
+      "gender": "Male",
+      "position": "Leader",
+      "department": 2
+    },
+    {
+      "id": "7",
+      "name": "Trinh Thu Hang",
+      "dob": "2000-05-12",
+      "gender": "Female",
+      "position": "Developer",
+      "department": 3
+    },
+    {
+      "id": "8",
+      "name": "Tran Hong Quan",
+      "dob": "1998-04-16",
+      "gender": "Male",
+      "position": "Leader",
+      "department": 3
+    },
+    {
+      "id": "9",
+      "name": "Pham The Tung",
+      "dob": "1984-09-12",
+      "gender": "Male",
+      "position": "Manager",
+      "department": 1
+    },
+    {
+      "id": "10",
+      "name": "Loi van Tien",
+      "dob": "1983-10-21",
+      "gender": "Male",
+      "position": "Manager",
+      "department": 2
+    }
+  ],
+  "projects": [
+    {
+      "id": "3",
+      "name": "Deployment Services",
+      "description": "Wicresoft understands that a Project Online implementation involves far more than provisioning new users. To make an implementation successful, the project and resource management process must be refined and reports must be generated to show key data and KPIs.",
+      "startDate": "2021-07-08",
+      "type": "Consulting Project",
+      "department": 3
+    },
+    {
+      "id": "a264",
+      "name": "Phạm Duy Kiên",
+      "description": "fsdfs",
+      "startDate": "2024-07-12",
+      "type": "Software Product",
+      "department": "1"
+    },
+    {
+      "id": "88f8",
+      "name": "Phạm Duy Kiên",
+      "description": "dưedw",
+      "startDate": "2024-07-07",
+      "type": "Software Product",
+      "department": "2"
+    },
+    {
+      "id": "82c9",
+      "name": "Phạm Duy Kiên",
+      "description": "kien",
+      "startDate": "2024-07-04",
+      "type": "Software Product1",
+      "department": "3"
+    },
+    {
+      "id": "c53c",
+      "name": "Dau Dinh Hieu",
+      "description": "sasass",
+      "startDate": "2024-07-10",
+      "type": "Software Product1",
+      "department": ""
+    },
+    {
+      "id": "ae2d",
+      "name": "Phạm Duy Kiên",
+      "description": "dasd",
+      "startDate": "2024-10-19",
+      "type": "Software Product1",
+      "department": ""
+    },
+    {
+      "id": "aab4",
+      "name": "Dau Dinh Hieu",
+      "description": "casca",
+      "startDate": "2024-10-03",
+      "type": "Software Product",
+      "department": "2"
+    }
+  ]
+}
